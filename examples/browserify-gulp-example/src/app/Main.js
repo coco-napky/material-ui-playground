@@ -6,10 +6,18 @@
 import React from 'react';
 import RaisedButton from 'material-ui/lib/raised-button';
 import Dialog from 'material-ui/lib/dialog';
-import {deepOrange500} from 'material-ui/lib/styles/colors';
+
+import {indigo700} from 'material-ui/lib/styles/colors';
+import {green500} from 'material-ui/lib/styles/colors';
+import {grey300} from 'material-ui/lib/styles/colors';
+import {white} from 'material-ui/lib/styles/colors';
+import {grey900} from 'material-ui/lib/styles/colors';
+
 import FlatButton from 'material-ui/lib/flat-button';
 import getMuiTheme from 'material-ui/lib/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/lib/MuiThemeProvider';
+
+import Login from './LoginComponent';
 
 const styles = {
   container: {
@@ -20,7 +28,16 @@ const styles = {
 
 const muiTheme = getMuiTheme({
   palette: {
-    accent1Color: deepOrange500,
+    primary1Color: '#3F51B5',
+    primary2Color: '#C5CAE9',
+    primary3Color: '#303F9F',
+    accent1Color: '#C5CAE9',
+    accent2Color: '#C5CAE9',
+    accent3Color: '#C5CAE9',
+    textColor: '#212121',
+    alternateTextColor: '#fff',
+    canvasColor: white,
+    borderColor: '#B6B6B6',
   },
 });
 
@@ -58,23 +75,11 @@ class Main extends React.Component {
 
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
-        <div style={styles.container}>
-          <Dialog
-            open={this.state.open}
-            title="Super Secret Password"
-            actions={standardActions}
-            onRequestClose={this.handleRequestClose}
-          >
-            1-2-3-4-5
-          </Dialog>
-          <h1>material-ui</h1>
-          <h2>example project</h2>
-          <RaisedButton
-            label="Super Secret Password"
-            primary={true}
-            onTouchTap={this.handleTouchTap}
-          />
-        </div>
+          <div className="row center-xs middle-xs login-wrapper">
+              <div className="col-xs-6">
+                  <Login></Login>
+              </div>
+          </div>
       </MuiThemeProvider>
     );
   }
